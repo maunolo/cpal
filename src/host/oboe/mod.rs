@@ -337,6 +337,7 @@ impl DeviceTrait for Device {
             SampleFormat::I16 => {
                 let builder = oboe::AudioStreamBuilder::default()
                     .set_input()
+                    .set_performance_mode(oboe::PerformanceMode::LowLatency)
                     .set_format::<i16>();
                 if config.channels == 1 {
                     build_input_stream(
@@ -364,6 +365,7 @@ impl DeviceTrait for Device {
             SampleFormat::F32 => {
                 let builder = oboe::AudioStreamBuilder::default()
                     .set_input()
+                    .set_performance_mode(oboe::PerformanceMode::LowLatency)
                     .set_format::<f32>();
                 if config.channels == 1 {
                     build_input_stream(
